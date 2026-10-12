@@ -111,15 +111,21 @@ mutate(Volume = x*y*z)
 
 ```
 
-- [ ] Create a `tibble` containing only the numeric columns of `diamonds`. (Hint: look at the tidyselect callout in the notes.)
+- [x] Create a `tibble` containing only the numeric columns of `diamonds`. (Hint: look at the tidyselect callout in the notes.)
 
 ::: {.solution}
-
+```{r}
+library(tidyverse)
+diamondsnum <- diamonds|>
+  
+  select(values_from = carat, depth, table, price, x,  y,  z)
+diamondsnum
+```
 :::
 
 Now answer the following research questions.
 
-- [ ] What is the average price of all the diamonds in the dataset?
+- [x] What is the average price of all the diamonds in the dataset?
 - [ ] What is the volume of the 5 highest priced diamonds?
 - [ ] What is the average, minimum and maximum price of diamonds for each cut?
 - [ ] Ideal is the best cut, yet it has the lowest average price. Can you explain why? (Hint: compare the average `carat` of each cut.)
@@ -128,6 +134,10 @@ Now answer the following research questions.
 - [ ] Create a `tibble` containing diamonds that are "unusually" large (having volume more than three standard deviations from the mean volume)?
 
 ::: {.solution}
+```{r}
+library(tidyverse)
+diamondsnew |> summarise(mean_price=mean(price))
+```
 
 :::
 
